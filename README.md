@@ -12,7 +12,7 @@ About this project: Create a professional website using React.js and Contentstac
 
 ## Live Demo
 
-You can check the [live demo](https://contentstack-reactjs-universal-demo-l1zf76tuk.vercel.app/) to get first-hand experience of the website.
+You can check the [live demo](https://contentstack-reactjs-universal-demo.vercel.app/) to get first-hand experience of the website.
 
 
 ## Tutorial

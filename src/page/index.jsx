@@ -1,39 +1,43 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable func-names */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable import/extensions */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
-import React from "react";
-import Layout from "../Components/Layout.jsx";
-import Portfolio from "../Components/Portfolio.jsx";
-import Contact from "../Components/Contact.jsx";
-import About from "../Components/About.jsx";
-import Blogs from "../Components/Blogs.jsx";
-import Stack from "../sdk/entry";
+import React from "react"
+import Layout from "../components/layout.jsx"
+import Portfolio from "../components/portfolio.jsx"
+import Contact from "../components/contact.jsx"
+import About from "../components/about.jsx"
+import Blogs from "../components/blogs.jsx"
+import Stack from "../sdk/entry"
 
 export default class Home extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       entry: {},
       header: undefined,
       footer: undefined,
       blogs: undefined,
-    };
+    }
   }
+
   async componentDidMount() {
-    const header = await Stack.getEntry("header", "en-us");
-    const footer = await Stack.getEntry("footer", "en-us");
-    const result = await Stack.getEntry("home", "en-us");
-    const blogs = await Stack.getEntry("blog_posts","en-us")
+    const header = await Stack.getEntry("header", "en-us")
+    const footer = await Stack.getEntry("footer", "en-us")
+    const result = await Stack.getEntry("home", "en-us")
+    const blogs = await Stack.getEntryWithRef("blog_posts", "author", "en-us")
     this.setState({
       header: header[0][0],
       footer: footer[0][0],
       entry: result[0][0],
-      blogs:blogs[0]
-    });
+      blogs: blogs[0],
+    })
   }
 
   render() {
-    console.log(this.state);
     return (
       <Layout
         header={this.state.header}
@@ -80,11 +84,7 @@ export default class Home extends React.Component {
         ) : (
           ""
         )}
-        {this.state.blogs ? (
-          <Blogs blogs={this.state.blogs} />
-        ) : (
-          ""
-        )}
+        {this.state.blogs ? <Blogs blogs={this.state.blogs} /> : ""}
         {this.state.entry.about ? <About about={this.state.entry.about} /> : ""}
         {this.state.entry.contact ? (
           <Contact contact={this.state.entry.contact} />
@@ -94,7 +94,7 @@ export default class Home extends React.Component {
         {/* <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) --> */}
         <div className="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
           <a className="btn btn-primary" href="#page-top">
-            <i className="fa fa-chevron-up"></i>
+            <i className="fa fa-chevron-up" />
           </a>
         </div>
         {/* <!-- Portfolio Modals --> */}
@@ -115,7 +115,7 @@ export default class Home extends React.Component {
                     <div className="modal-content">
                       <div className="close-modal" data-dismiss="modal">
                         <div className="lr">
-                          <div className="rl"></div>
+                          <div className="rl" />
                         </div>
                       </div>
                       <div className="container">
@@ -131,7 +131,7 @@ export default class Home extends React.Component {
                                   alt={folio.image.filename}
                                 />
                               </div>
-                              <div v-html="folio.description"></div>
+                              <div v-html="folio.description" />
                               <ul className="list-inline item-details">
                                 <li>
                                   Client:
@@ -161,7 +161,7 @@ export default class Home extends React.Component {
                                 className="btn btn-default"
                                 data-dismiss="modal"
                               >
-                                <i className="fa fa-times"></i> Close
+                                <i className="fa fa-times" /> Close
                               </button>
                             </div>
                           </div>
@@ -170,10 +170,10 @@ export default class Home extends React.Component {
                     </div>
                   </div>
                 </div>
-              );
+              )
             })
           : ""}
       </Layout>
-    );
+    )
   }
 }
