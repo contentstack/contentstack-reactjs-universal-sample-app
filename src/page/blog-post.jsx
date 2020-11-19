@@ -58,7 +58,6 @@ export default class BlogPost extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <Layout
         header={this.state.header}

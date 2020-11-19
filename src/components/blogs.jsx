@@ -1,5 +1,4 @@
 /* eslint-disable react/prefer-stateless-function */
-/* eslint-disable no-console */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable func-names */
@@ -18,7 +17,6 @@ function dateSetter(params) {
 
 export default class Blogs extends React.Component {
   render() {
-    console.log(this.props.blogs)
     return this.props.blogs ? (
       <section id="blogs">
         <div className="container">
