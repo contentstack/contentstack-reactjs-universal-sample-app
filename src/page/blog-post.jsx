@@ -83,7 +83,7 @@ export default class BlogPost extends React.Component {
                       {this.state.entry ? (
                         <div>
                           <span className="blogPostTimeStamp">
-                            {dateSetter(this.state.entry._owner.created_at)}
+                            {dateSetter(this.state.entry.publish_date)}
                           </span>
                           ,
                           <span className="blogpost-author">
