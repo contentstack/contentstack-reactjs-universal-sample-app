@@ -41,7 +41,7 @@ export default class Blogs extends React.Component {
                         <h4 className="blogTitle">{blog.title}</h4>
                         <div className="authorSection">
                           <span className="timeStamp">
-                            {dateSetter(blog._owner.created_at)}
+                            {dateSetter(blog.publish_date)}
                           </span>
                           ,
                           <span className="post-author">
